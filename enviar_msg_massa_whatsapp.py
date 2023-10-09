@@ -24,8 +24,8 @@ time.sleep(2) # só uma garantia
 # o whatsapp já carregou
 import pandas as pd
 
-tabela = pd.read_excel("C:/Users/George Telles/Downloads/enviar_msg_massa_whatsapp-main/enviar_msg_massa_whatsapp-main/Envios.xlsx")
-print(tabela[['nome', 'mensagem', 'arquivo']]) # tem também uma coluna telefone dentro da tabela
+tabela = pd.read_excel("C:/Users/George Telles/Desktop/Bot Zap/Envios.xlsx")
+print(tabela[['mensagem', 'arquivo']]) # tem também uma coluna telefone dentro da tabela
 
 for linha in tabela.index:
     # enviar uma mensagem para a pessoa
