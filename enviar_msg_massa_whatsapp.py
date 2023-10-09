@@ -24,19 +24,19 @@ time.sleep(2) # só uma garantia
 # o whatsapp já carregou
 import pandas as pd
 
-tabela = pd.read_excel("G:/Meu Drive/2. Documentos/dock/Enviar msg no Whats com Python/Envios.xlsx")
+tabela = pd.read_excel("C:/Users/George Telles/Downloads/enviar_msg_massa_whatsapp-main/enviar_msg_massa_whatsapp-main/Envios.xlsx")
 print(tabela[['nome', 'mensagem', 'arquivo']]) # tem também uma coluna telefone dentro da tabela
 
 for linha in tabela.index:
     # enviar uma mensagem para a pessoa
-    nome = tabela.loc[linha, "nome"]
+    
     mensagem = tabela.loc[linha, "mensagem"]
     arquivo = tabela.loc[linha, "arquivo"]
     telefone = tabela.loc[linha, "telefone"]
     
-    texto = mensagem.replace("fulano", nome)
+   
     #codifica o texto para a url
-    texto = urllib.parse.quote(texto)
+    texto = urllib.parse.quote(mensagem)
 
     # enviar a mensagem
     link = f"https://web.whatsapp.com/send?phone={telefone}&text={texto}"
@@ -45,12 +45,12 @@ for linha in tabela.index:
     # esperar a tela do whatsapp carregar -> espera um elemento que só existe na tela já carregada aparecer
     while len(navegador.find_elements(By.ID, 'side')) < 1: # -> lista for vazia -> que o elemento não existe ainda
         time.sleep(2)
-    time.sleep(5) # só uma garantia
+    time.sleep(15) # só uma garantia
     
     # você tem que verificar se o número é inválido
     if len(navegador.find_elements(By.XPATH, '//*[@id="app"]/div/span[2]/div/span/div/div/div/div/div/div[1]')) < 1:
         # enviar a mensagem
-        time.sleep(2)
+        time.sleep(15)
         navegador.find_element(By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span').click()
         
         if arquivo != "N":
