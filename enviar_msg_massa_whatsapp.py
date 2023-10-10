@@ -54,12 +54,12 @@ for linha in tabela.index:
         navegador.find_element(By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span').click()
         
         if arquivo != "N":
-            caminho_completo = os.path.abspath(f"G:/Meu Drive/2. Documentos/dock/Enviar msg no Whats com Python/{arquivo}")
+            caminho_completo = os.path.abspath(f"C:/Users/George Telles/Desktop/Bot Zap/{arquivo}")
             time.sleep(2)
             navegador.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div/div/span').click()
             time.sleep(2)
-            navegador.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/span/div/ul/div/div[1]/li/div/input').send_keys(caminho_completo)
-            time.sleep(3)
+            navegador.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/span/div/ul/div/div[2]/li/div/input').send_keys(caminho_completo)
+            time.sleep(5)
             navegador.find_element(By.XPATH,'//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]/div/div').click()
             
         time.sleep(5)
